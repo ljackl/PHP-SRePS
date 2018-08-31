@@ -14,7 +14,7 @@ Clone the project
 git clone https://github.com/ljackl/PHP-SRePS.git
 ```
 
-Install project dependencies  
+Install project dependencies (from within project directory)  
 ```bash
 composer install
 ```
