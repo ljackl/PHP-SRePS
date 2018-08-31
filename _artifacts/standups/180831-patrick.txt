@@ -1,0 +1,21 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 1]
+Date: 31/08/2018
+
+Talking Points
+============================
+Things I've done
+* Committed initial project
+	- Base Laravel project
+	- Laravel Collective bootstrap forms
+
+Things that were blocking me
+* N/A
+
+Still working on
+* N/A
+
+Plan on doing
+* Create a branch and doing the Items MVC
+
+General status
+* The project is in general ahead of schedule
