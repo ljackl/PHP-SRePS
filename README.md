@@ -31,8 +31,9 @@ php artisan key:generate
 
 Edit database connection properties  
 ```
-DB_DATABASE=database_name
-DB_USERNAME=12345
+DB_DATABASE=php_sreps_db
+DB_USERNAME=root
+DB_PASSWORD=
 ```
 
 ## Running
