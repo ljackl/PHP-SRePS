@@ -1,0 +1,26 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+
+Date: 31/08/18
+
+
+Talking Points
+
+=========================================
+
+Things I've done
+ 
+ - Development Environment Setup
+ - DBMS setup, installation of required software.
+ 	- DBMS insertion and testing.
+
+Things that were blocking me
+ - Extremely rusty at sql and anything related to it.
+
+Still working on
+ - Endless backlog of work, aside from that, nothing, heh.
+
+Plan on doing
+ - Creating a controller, and learning on doing so, what requires it and what can use it / what it does.
+
+General Status
+ - =^ w ^=

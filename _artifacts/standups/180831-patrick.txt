@@ -7,6 +7,7 @@ Things I've done
 * Committed initial project
 	- Base Laravel project
 	- Laravel Collective bootstrap forms
+* Development Environment Setup
 
 Things that were blocking me
 * N/A
