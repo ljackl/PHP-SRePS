@@ -37,7 +37,7 @@ DB_PASSWORD=
 ```
 
 Create the database either using phpMyAdmin or from the command line  
-```mysql
+```sql
 CREATE databse php_sreps_db
 ```
 
@@ -48,6 +48,12 @@ php artisan migrate
 or to refresh  
 ```bash
 php artisan migrate:fresh
+```
+
+Seed the database  
+```bash
+composer dump-autoload
+php artisan db:seed
 ```
 
 ## Running
