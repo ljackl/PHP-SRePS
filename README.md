@@ -36,6 +36,20 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
+Create the database either using phpMyAdmin or from the command line  
+```mysql
+CREATE databse php_sreps_db
+```
+
+Create the tables using Laravel Migrations  
+```bash
+php artisan migrate
+```
+or to refresh  
+```bash
+php artisan migrate:fresh
+```
+
 ## Running
 Ensure Apache and MySQL are running in XAMPP
 
