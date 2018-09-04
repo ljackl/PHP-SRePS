@@ -1,0 +1,19 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+Date: 3/09/18
+Talking Points
+=========================================
+Things I've done
+- Nothing rip
+
+Things that were blocking me
+- Lack of motivation
+- No controller to make a view and add logic with
+
+Still working on
+- N/A
+
+Plan on doing
+- Making edit sales view and logic
+
+General Status 
+- Could be better ¯\_(ツ)_/¯

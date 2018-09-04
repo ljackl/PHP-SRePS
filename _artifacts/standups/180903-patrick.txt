@@ -1,0 +1,24 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 1]
+Date: 03/09/2018
+
+Talking Points
+============================
+Things I've done
+* Created Laravel migrations for DB
+* Created Laravel seeds for DB
+* Created MVC for the items aspect of the system
+
+Things that were blocking me
+* N/A
+
+Still working on
+* N/A
+
+Plan on doing
+* Creating the Views for Sales Records
+* Adding delete Sales Record function
+
+General status
+* The project is still going well.
+	- Alex is having personal difficulties but Sarah has taken up the slack there
+	- Jack may be taking a leave of absence from Uni, so I'll be taking up the slack there
