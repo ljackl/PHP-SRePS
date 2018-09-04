@@ -15,7 +15,7 @@
 					<a href="{{URL::to('items')}}">View All Items</a>
 				</li>
 				<li>
-					<a href="{{URL::to('items/create')}}">Create a Item</a>
+					<a href="{{URL::to('items/create')}}">Create an Item</a>
 				</li>
 			</ul>
 		</nav>
