@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Sales;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Carbon\Carbon;
@@ -95,6 +96,11 @@ class SalesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sale = Sales::find($id);
+        $sale->delete();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted!');
+        return Redirect::to('sales');
     }
 }
