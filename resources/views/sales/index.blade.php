@@ -42,6 +42,7 @@
                   <a class ="btn btn-small btn-success" href="{{URL::to('sales/'.$value->id)}}">
                     Show this Order
                   </a>
+                  {{ Form::open(array('url' => 'sales/' . $value->id, 'class' => 'pull-right')) }} {{ Form::hidden('_method', 'DELETE') }} {{ Form::submit('Delete', array('class' => 'btn btn-small btn-warning')) }} {{ Form::close() }}
               </td>
               <td><!--edit sales button?--></td>
             </tr>
