@@ -11,9 +11,11 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="{{URL::to('sales')}}">Sales Alert</a>
         </div>
-        <ul class="nav navbar-nav">
-          <li><a href="{{URL::to('sales')}}">View All Sales</a></li>
-        </ul>
+
+          <a href="{{URL::to('sales/create')}}">Create a Sale</a>
+        </li>
+      </ul>
+
       </nav>
 
       <h1>All the Sales</h1>

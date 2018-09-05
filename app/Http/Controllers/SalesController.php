@@ -36,7 +36,7 @@ class SalesController extends Controller
      */
     public function create()
     {
-        //
+        return View::make('sales.create');
     }
 
     /**
@@ -45,10 +45,40 @@ class SalesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
     public function store(Request $request)
-    {
-        //
-    }
+ {
+   // Validate
+   // Read more on validation at http://laravel.com/docs/validation
+   $rules = array(
+     'sale' => 'required|numeric',
+     'quantity' => 'required|numeric',
+     'item_id' => 'required|numeric',
+   );
+   $validator = Validator::make(Input::all(), $rules);
+
+   if ($validator->fails()) {
+     return Redirect::to('orders/create')
+       ->withErrors($validator)
+       ->withInput(Input::except('password'));
+   } else {
+     $sale = new Sales;
+     $sale->sale = Input::get('sale');
+     $sale->quantity = Input::get('quantity');
+     $sale->created_at = Carbon::now();
+     $sale->item_id = Input::get('item_id');
+     $sale->save();
+
+     // redirect
+     Session::flash('message', 'Successfully created sale!');
+     return Redirect::to('sales');
+   }
+ }
+
+
+
+
 
     /**
      * Display the specified resource.
