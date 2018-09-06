@@ -1,0 +1,19 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+Date: 6/09/18
+
+Talking Points
+=========================================
+Things I've done
+- Nothing
+
+Things that were blocking me
+- n/a
+
+Still working on
+- currently nothing
+
+Plan on doing
+- testing the sales MVC when it's ready 
+
+General Status 
+- 
