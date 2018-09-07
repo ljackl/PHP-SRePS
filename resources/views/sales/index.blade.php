@@ -28,7 +28,7 @@
 		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
-                    <th>Item ID</th>
+					<th>Sale ID</th>
                     <th>Item Name</th>
                     <th>Sale Price</th>
                     <th>Quantity Sold</th>
@@ -39,7 +39,7 @@
 			<tbody>
       			@foreach($sales as $key => $value)
 					<tr>
-                        <td>{{$value->item_id}}</td>
+                        <td>{{$value->id}}</td>
                         <td>{{$value->item->name}}</td>
                         <td>${{$value->sale}}</td>
                         <td>{{$value->quantity}}</td>

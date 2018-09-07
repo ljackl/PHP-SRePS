@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sale;
+use App\Item;
 use App\Http\Requests\StoreSale;
 
 use Illuminate\Http\Request;
@@ -37,7 +38,8 @@ class SalesController extends Controller
      */
     public function create()
     {
-        return View::make('sales.create');
+        $items = Item::pluck('name', 'id');
+        return View::make('sales.create')->with('items', $items);
     }
 
     /**

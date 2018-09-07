@@ -24,8 +24,9 @@
 			{{ Form::label('quantity', 'Quantity Sold') }} {{ Form::text('quantity', Input::old('quantity'), array('class' => 'form-control')) }}
 		</div>
 
-    	<div class="form-group">
-			{{ Form::label('item_id', 'Item ID') }} {{ Form::text('item_id', Input::old('item_id'), array('class' => 'form-control')) }}
+		<div class="form-group">
+		    {{ Form::Label('item_id', 'Item:') }}
+		    {{ Form::select('item_id', $items, null, ['class' => 'form-control']) }}
 		</div>
 
 		{{ Form::submit('Create the Order!', array('class' => 'btn btn-primary')) }} {{ Form::close() }}
