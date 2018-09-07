@@ -103,7 +103,8 @@ class SalesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sale = Sale::find($id);
+        return View::make('sales.edit')->with('sale', $sale);
     }
 
     /**
@@ -115,7 +116,18 @@ class SalesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validated();
+
+        $sale = Sale::find($id);
+        $sale->sale = Input::get('sale');
+        $sale->quantity = Input::get('quantity');
+        $sale->item_id = Input::get('item_id');
+        $sale->updated_at = Carbon::now();
+        $item->save();
+
+        // redirect
+        Session::flash('message', 'Successfully updated!');
+        return Redirect::to('sales');
     }
 
     /**

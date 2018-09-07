@@ -46,7 +46,9 @@
                   </a>
                   {{ Form::open(array('url' => 'sales/' . $value->id, 'class' => 'pull-right')) }} {{ Form::hidden('_method', 'DELETE') }} {{ Form::submit('Delete', array('class' => 'btn btn-small btn-warning')) }} {{ Form::close() }}
               </td>
-              <td><!--edit sales button?--></td>
+              <td>
+                <a class="btn btn-small btn-info" href="{{ URL::to('sales/' . $value->id . '/edit') }}">Edit this Sale</a>
+              </td>
             </tr>
           @endforeach
         </tbody>
