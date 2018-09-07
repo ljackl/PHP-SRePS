@@ -1,0 +1,22 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 1]
+Date: 04/09/2018
+
+Talking Points
+============================
+Things I've done
+* Fixed bug in the Items MVC where the incorrect request validator was used
+* Fixed spelling on create an items view
+* Added delete functionality to the Sales MVC
+
+Things that were blocking me
+* N/A
+
+Still working on
+* N/A
+
+Plan on doing
+* Intergrating the Items MVC into the Sales MVC when all other functions are complete
+
+General status
+* All is well
+	- Alex is back to full operating capacity

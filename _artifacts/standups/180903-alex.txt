@@ -1,0 +1,25 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+
+Date: 03/09/18
+
+
+
+Talking Points
+
+=========================================
+
+Things I've done
+ 
+ - N/A
+
+Things that were blocking me
+ - Things unrelated to university work.
+
+Still working on
+ - Endless backlog of work, aside from that, nothing, heh.
+
+Plan on doing
+ - Editing a controller, developing a better understanding of how it interacts with data.
+
+General Status
+ - =^ . ^=
