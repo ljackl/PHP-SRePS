@@ -12,7 +12,7 @@ class ItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($x = 0; $x <= 10; $x++) {
+        for ($x = 0; $x <= 200; $x++) {
             DB::table('items')->insert([
                 'name' => str_random(10),
                 'description' => str_random(10),
