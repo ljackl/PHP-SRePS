@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Sales;
+use App\Sale;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +23,7 @@ class SalesController extends Controller
     public function index()
     {
         //retrieve all Sales
-        $sales = Sales::all();
+        $sales = Sale::all();
 
         //Load the view and pass the orders
         return View::make ('sales.index')->with('sales', $sales);
@@ -63,7 +63,7 @@ class SalesController extends Controller
        ->withErrors($validator)
        ->withInput(Input::except('password'));
    } else {
-     $sale = new Sales;
+     $sale = new Sale;
      $sale->sale = Input::get('sale');
      $sale->quantity = Input::get('quantity');
      $sale->created_at = Carbon::now();
@@ -89,7 +89,7 @@ class SalesController extends Controller
     public function show($id)
     {
         //retrieve order based on id
-        $sales = Sales::find($id);
+        $sales = Sale::find($id);
 
         //show the view and pass the sale info to it
         return View::make('sales.show')->with('sales', $sales);
@@ -126,7 +126,7 @@ class SalesController extends Controller
      */
     public function destroy($id)
     {
-        $sale = Sales::find($id);
+        $sale = Sale::find($id);
         $sale->delete();
 
         // redirect
