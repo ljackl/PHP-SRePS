@@ -48,37 +48,33 @@ class SalesController extends Controller
 
 
     public function store(Request $request)
- {
-   // Validate
-   // Read more on validation at http://laravel.com/docs/validation
-   $rules = array(
-     'sale' => 'required|numeric',
-     'quantity' => 'required|numeric',
-     'item_id' => 'required|numeric',
-   );
-   $validator = Validator::make(Input::all(), $rules);
+    {
+    // Validate
+    // Read more on validation at http://laravel.com/docs/validation
+    $rules = array(
+        'sale' => 'required|numeric',
+        'quantity' => 'required|numeric',
+        'item_id' => 'required|numeric',
+    );
+    $validator = Validator::make(Input::all(), $rules);
 
-   if ($validator->fails()) {
-     return Redirect::to('orders/create')
-       ->withErrors($validator)
-       ->withInput(Input::except('password'));
-   } else {
-     $sale = new Sale;
-     $sale->sale = Input::get('sale');
-     $sale->quantity = Input::get('quantity');
-     $sale->created_at = Carbon::now();
-     $sale->item_id = Input::get('item_id');
-     $sale->save();
+    if ($validator->fails()) {
+        return Redirect::to('orders/create')
+        ->withErrors($validator)
+        ->withInput(Input::except('password'));
+    } else {
+        $sale = new Sale;
+        $sale->sale = Input::get('sale');
+        $sale->quantity = Input::get('quantity');
+        $sale->created_at = Carbon::now();
+        $sale->item_id = Input::get('item_id');
+        $sale->save();
 
-     // redirect
-     Session::flash('message', 'Successfully created sale!');
-     return Redirect::to('sales');
-   }
- }
-
-
-
-
+        // redirect
+        Session::flash('message', 'Successfully created sale!');
+        return Redirect::to('sales');
+    }
+    }
 
     /**
      * Display the specified resource.
@@ -116,18 +112,29 @@ class SalesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validated();
+        $rules = array(
+            'sale' => 'required|numeric',
+            'quantity' => 'required|numeric',
+            'item_id' => 'required|numeric',
+        );
+        $validated = Validator::make(Input::all(), $rules);
 
-        $sale = Sale::find($id);
-        $sale->sale = Input::get('sale');
-        $sale->quantity = Input::get('quantity');
-        $sale->item_id = Input::get('item_id');
-        $sale->updated_at = Carbon::now();
-        $item->save();
-
-        // redirect
-        Session::flash('message', 'Successfully updated!');
-        return Redirect::to('sales');
+        if ($validated->fails()) {
+            return Redirect::to('orders/create')
+              ->withErrors($validator)
+              ->withInput(Input::except('password'));
+        } else {
+            $sale = Sale::find($id);
+            $sale->sale = Input::get('sale');
+            $sale->quantity = Input::get('quantity');
+            $sale->created_at = Carbon::now();
+            $sale->item_id = Input::get('item_id');
+            $sale->save();
+       
+            // redirect
+            Session::flash('message', 'Successfully updated!');
+            return Redirect::to('sales');
+        }
     }
 
     /**

@@ -20,13 +20,13 @@
 			</ul>
 		</nav>
 
-		<h1>Edit {{ $sale->sale }}</h1>
+		<h1>Edit {{ $sale->id }}</h1>
 
 		<!-- if there are creation errors, they will show here -->
 		{{ HTML::ul($errors->all()) }} {{ Form::model($sale, array('route' => array('sales.update', $sale->id), 'method' => 'PUT')) }}
 
 		<div class="form-group">
-			{{ Form::label('sale', 'Sale Name') }} {{ Form::text('sale', Input::old('sale'), array('class' => 'form-control')) }}
+			{{ Form::label('sale', 'Sale Price') }} {{ Form::text('sale', Input::old('sale'), array('class' => 'form-control')) }}
 		</div>
 
 		<div class="form-group">
