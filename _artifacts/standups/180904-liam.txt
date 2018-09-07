@@ -1,0 +1,19 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+Date: 4/09/18
+
+Talking Points
+=========================================
+Things I've done
+- Nothing
+
+Things that were blocking me
+- Been busy with other classes today
+
+Still working on
+- N/A
+
+Plan on doing
+- Making edit sales view and logic
+
+General Status 
+- Same as yesterday ¯\_(ツ)_/¯

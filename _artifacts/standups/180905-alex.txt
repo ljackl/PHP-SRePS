@@ -1,0 +1,27 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+
+Date: 05/08/18
+
+
+Talking Points
+
+=========================================
+
+Things I've done
+ 
+ - Added to a model.
+ - Created a view related to adding sales.
+ - Logic and database access, etc. 
+ - Sales logic and view for adding deleting sales all complete.
+
+Things that were blocking me
+ - Lack of Laravel knowledge
+
+Still working on
+ - Continuing work, other than that N/A.
+
+Plan on doing
+ - Learning more laravel and continuing upon backlog.
+
+General Status
+ - Much better, workflow improving.

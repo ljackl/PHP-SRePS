@@ -1,0 +1,22 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+Date: 31/08/18
+
+Talking Points
+=========================================
+Things I’ve done
+- Development Environment Setup
+- Setup up required software on my computers
+- Assist in SQL validation
+
+Things that were blocking me
+- N/A
+
+Still working on
+- Getting the DBMS locally on my machines
+
+Plan on doing
+- Need to create view and logic for edit sales records
+
+General Status
+- Doing well ˙ ͜ʟ˙
+
