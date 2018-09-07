@@ -8,12 +8,9 @@
 	<div class="container">
 		<nav class="navbar navbar-inverse">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="{{URL::to('sales')}}">Sale Alert</a>
+				<a class="navbar-brand" href="{{URL::to('sales')}}">Back to Sales</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li>
-					<a href="{{URL::to('sales')}}">View All Sales</a>
-				</li>
 				<li>
 					<a href="{{URL::to('sales/create')}}">Create a Sale</a>
 				</li>

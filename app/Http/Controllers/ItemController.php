@@ -23,7 +23,10 @@ class ItemController extends Controller
      */
     public function index()
     {
+        // Retrieve all objects from Model
         $items = Item::all();
+
+        // Return view with objects
         return View::make('items.index')->with('items', $items);
     }
 
@@ -45,8 +48,10 @@ class ItemController extends Controller
      */
     public function store(StoreItem $request)
     {
+        // Validate
         $validated = $request->validated();
 
+        // Create new object
         $item = new Item;
         $item->name = Input::get('name');
         $item->description = Input::get('description');
@@ -55,7 +60,7 @@ class ItemController extends Controller
         $item->created_at = Carbon::now();
         $item->save();
 
-        // redirect
+        // Redirect
         Session::flash('message', 'Successfully created!');
         return Redirect::to('items');
     }
@@ -68,7 +73,10 @@ class ItemController extends Controller
      */
     public function show($id)
     {
+        // Retrieve all objects from Model based on ID
         $item = Item::find($id);
+
+        // Return view with objects
         return View::make('items.show')->with('item', $item);
     }
 
@@ -103,7 +111,7 @@ class ItemController extends Controller
         $item->updated_at = Carbon::now();
         $item->save();
 
-        // redirect
+        // Redirect
         Session::flash('message', 'Successfully updated!');
         return Redirect::to('items');
     }
@@ -119,7 +127,7 @@ class ItemController extends Controller
         $item = Item::find($id);
         $item->delete();
 
-        // redirect
+        // Redirect
         Session::flash('message', 'Successfully deleted!');
         return Redirect::to('items');
     }
