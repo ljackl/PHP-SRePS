@@ -16,7 +16,6 @@
 				</li>
 			</ul>
 		</nav>
-		<h1>All Items</h1>
 
 		<!-- will be used to show any messages -->
 		@if (Session::has('message'))
@@ -24,7 +23,8 @@
 				{{Session::get('message') }}
 			</div>
 		@endif
-
+		
+		<h1>All Items</h1>
 		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>

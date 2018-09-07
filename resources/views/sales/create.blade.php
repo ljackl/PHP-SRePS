@@ -28,7 +28,7 @@
 		    {{ Form::Label('item_id', 'Item:') }}
 		    {{ Form::select('item_id', $items, null, ['class' => 'form-control']) }}
 		</div>
-
+		
 		{{ Form::submit('Create the Order!', array('class' => 'btn btn-primary')) }} {{ Form::close() }}
 	</div>
 </body>

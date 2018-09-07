@@ -16,7 +16,6 @@
 				</li>
 			</ul>
 		</nav>
-		<h1>All Sales</h1>
 
 		<!-- will be used to show any messages -->
 		@if (Session::has('message'))
@@ -25,6 +24,22 @@
 			</div>
 		@endif
 
+		<h1>Generate report</h1>
+		<div class="jumbotron text-center">
+			{{ Form::label('select_from', 'Select From') }}
+			{{ Form::date('select_from', null, array('class' => 'form-control')) }}
+
+			{{ Form::label('select_to', 'Select To') }}
+			{{ Form::date('select_to', null, array('class' => 'form-control')) }}
+
+			</br>
+
+			{{ Form::open(array('url' => 'sales/', 'class' => 'pull-right')) }}
+				{{ Form::submit('Go (todo)', array('class' => 'btn btn-small btn-block btn-info')) }}
+			{{ Form::close() }}
+		</div>
+
+		<h1>All Sales</h1>
 		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
