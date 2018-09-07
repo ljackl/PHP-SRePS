@@ -12,6 +12,8 @@
 */
 Route::resource('sales', "SalesController");
 
+Route::resource('items', 'ItemController');
+
 Route::get('/', function () {
     return view('welcome');
 });
