@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sale;
+use App\Http\Requests\StoreSale;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,11 +23,11 @@ class SalesController extends Controller
      */
     public function index()
     {
-        //retrieve all Sales
+        // Retrieve all objects from Model
         $sales = Sale::all();
 
-        //Load the view and pass the orders
-        return View::make ('sales.index')->with('sales', $sales);
+        // Return view with objects
+        return View::make('sales.index')->with('sales', $sales);
     }
 
     /**
@@ -47,22 +48,12 @@ class SalesController extends Controller
      */
 
 
-    public function store(Request $request)
+    public function store(StoreSale $request)
     {
-    // Validate
-    // Read more on validation at http://laravel.com/docs/validation
-    $rules = array(
-        'sale' => 'required|numeric',
-        'quantity' => 'required|numeric',
-        'item_id' => 'required|numeric',
-    );
-    $validator = Validator::make(Input::all(), $rules);
+        // Validate
+        $validated = $request->validated();
 
-    if ($validator->fails()) {
-        return Redirect::to('orders/create')
-        ->withErrors($validator)
-        ->withInput(Input::except('password'));
-    } else {
+        // Create new object
         $sale = new Sale;
         $sale->sale = Input::get('sale');
         $sale->quantity = Input::get('quantity');
@@ -70,10 +61,9 @@ class SalesController extends Controller
         $sale->item_id = Input::get('item_id');
         $sale->save();
 
-        // redirect
-        Session::flash('message', 'Successfully created sale!');
+        // Redirect
+        Session::flash('message', 'Successfully created!');
         return Redirect::to('sales');
-    }
     }
 
     /**
@@ -84,11 +74,11 @@ class SalesController extends Controller
      */
     public function show($id)
     {
-        //retrieve order based on id
-        $sales = Sale::find($id);
+        // Retrieve all objects from Model based on ID
+        $sale = Sale::find($id);
 
-        //show the view and pass the sale info to it
-        return View::make('sales.show')->with('sales', $sales);
+        // Return view with objects
+        return View::make('sales.show')->with('sale', $sale);
     }
 
     /**
@@ -110,31 +100,20 @@ class SalesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreSale $request, $id)
     {
-        $rules = array(
-            'sale' => 'required|numeric',
-            'quantity' => 'required|numeric',
-            'item_id' => 'required|numeric',
-        );
-        $validated = Validator::make(Input::all(), $rules);
+        $validated = $request->validated();
 
-        if ($validated->fails()) {
-            return Redirect::to('orders/create')
-              ->withErrors($validator)
-              ->withInput(Input::except('password'));
-        } else {
-            $sale = Sale::find($id);
-            $sale->sale = Input::get('sale');
-            $sale->quantity = Input::get('quantity');
-            $sale->created_at = Carbon::now();
-            $sale->item_id = Input::get('item_id');
-            $sale->save();
-       
-            // redirect
-            Session::flash('message', 'Successfully updated!');
-            return Redirect::to('sales');
-        }
+        $sale = Sale::find($id);
+        $sale->sale = Input::get('sale');
+        $sale->quantity = Input::get('quantity');
+        $sale->created_at = Carbon::now();
+        $sale->item_id = Input::get('item_id');
+        $sale->save();
+
+        // Redirect
+        Session::flash('message', 'Successfully updated!');
+        return Redirect::to('sales');
     }
 
     /**
@@ -148,7 +127,7 @@ class SalesController extends Controller
         $sale = Sale::find($id);
         $sale->delete();
 
-        // redirect
+        // Redirect
         Session::flash('message', 'Successfully deleted!');
         return Redirect::to('sales');
     }

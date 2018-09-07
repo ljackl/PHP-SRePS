@@ -16,6 +16,11 @@ class Item extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'stock', 'cost',
+        'name', 'description', 'stock', 'cost'
     ];
+
+    public function sales()
+    {
+        return $this->hasMany('App\Sale');
+    }
 }

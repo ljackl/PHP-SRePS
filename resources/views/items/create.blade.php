@@ -8,16 +8,8 @@
 	<div class="container">
 		<nav class="navbar navbar-inverse">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="{{URL::to('items')}}">Item Alert</a>
+				<a class="navbar-brand" href="{{URL::to('items')}}">Back to Items</a>
 			</div>
-			<ul class="nav navbar-nav">
-				<li>
-					<a href="{{URL::to('items')}}">View All Items</a>
-				</li>
-				<li>
-					<a href="{{URL::to('items/create')}}">Create an Item</a>
-				</li>
-			</ul>
 		</nav>
 		<h1>Create an Item</h1>
 
