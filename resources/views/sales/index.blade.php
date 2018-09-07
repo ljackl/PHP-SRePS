@@ -8,7 +8,7 @@
 	<div class="container">
 		<nav class="navbar navbar-inverse">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="{{URL::to('sales')}}">Sales</a>
+				<a class="navbar-brand" href="{{URL::to('/')}}">Back to Home</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<li>
@@ -46,9 +46,12 @@
                         <td>{{$value->created_at}}</td>
 						<td>
 							<!-- show, edit, and delete buttons -->
-							<a class="btn btn-small btn-success" href="{{URL::to('sales/'.$value->id)}}">View</a>
-							<a class="btn btn-small btn-info" href="{{URL::to('sales/'.$value->id.'/edit')}}">Edit</a>
-							{{ Form::open(array('url' => 'sales/' . $value->id, 'class' => 'pull-right')) }} {{ Form::hidden('_method', 'DELETE') }} {{ Form::submit('Delete', array('class' => 'btn btn-small btn-warning')) }} {{ Form::close() }}
+							<a class="btn btn-small btn-block btn-primary" href="{{URL::to('sales/'.$value->id)}}">View</a>
+							<a class="btn btn-small btn-block btn-secondary" href="{{URL::to('sales/'.$value->id.'/edit')}}">Edit</a>
+							{{ Form::open(array('url' => 'sales/' . $value->id, 'class' => 'pull-right')) }}
+								{{ Form::hidden('_method', 'DELETE') }}
+								{{ Form::submit('Delete', array('class' => 'btn btn-small btn-block btn-warning')) }}
+							{{ Form::close() }}
 						</td>
 					</tr>
       			@endforeach

@@ -10,10 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('sales', "SalesController");
 
+// Route for Sales
+Route::resource('sales', 'SalesController');
+
+// Route for Items
 Route::resource('items', 'ItemController');
 
+// Home page route
 Route::get('/', function () {
     return view('welcome');
 });
