@@ -18,6 +18,6 @@ $factory->define(App\Sale::class, function (Faker $faker) {
         'sale' => (mt_rand(1*10, 20*10) / 10),
         'quantity' => mt_rand(1, 5),
         'created_at' => $faker->dateTimeThisYear,
-        'item_id' => mt_rand(1, 200), // TODO: Get ID from Model
+        'item_id' => mt_rand(1, 182),
     ];
 });

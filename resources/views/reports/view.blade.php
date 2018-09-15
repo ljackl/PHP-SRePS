@@ -19,7 +19,27 @@
 			</div>
 		@endif
 
-		<h1>All Sales</h1>
+		<h1>Top 5 Selling Items</h1>
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Item ID</th>
+                    <th>Quantity Sold</th>
+				</tr>
+			</thead>
+			<tbody>
+      			@foreach($topSold as $key => $value)
+					<tr>
+                        <td><a href="{{URL::to('items/'.$key)}}">{{$key}}</a></td>
+						<td>{{$value}}</td>
+					</tr>
+      			@endforeach
+			</tbody>
+		</table>
+
+		</br>
+
+		<h1>All Selected Sales</h1>
 		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
