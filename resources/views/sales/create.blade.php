@@ -14,22 +14,24 @@
 		<h1>Create a Sale</h1>
 
 		<!-- if there are creation errors, they will show here -->
-		{{ HTML::ul($errors->all()) }} {{ Form::open(array('url' => 'sales')) }}
+		{{ HTML::ul($errors->all()) }}
 
-		<div class="form-group">
-			{{ Form::label('sale', 'Sale Price') }} {{ Form::text('sale', Input::old('sale'), array('class' => 'form-control')) }}
-		</div>
+		{{ Form::open(array('url' => 'sales')) }}
+			<div class="form-group">
+				{{ Form::label('sale', 'Sale Price') }} {{ Form::text('sale', Input::old('sale'), array('class' => 'form-control')) }}
+			</div>
 
-		<div class="form-group">
-			{{ Form::label('quantity', 'Quantity Sold') }} {{ Form::text('quantity', Input::old('quantity'), array('class' => 'form-control')) }}
-		</div>
+			<div class="form-group">
+				{{ Form::label('quantity', 'Quantity Sold') }} {{ Form::text('quantity', Input::old('quantity'), array('class' => 'form-control')) }}
+			</div>
 
-		<div class="form-group">
-		    {{ Form::Label('item_id', 'Item:') }}
-		    {{ Form::select('item_id', $items, null, ['class' => 'form-control']) }}
-		</div>
-		
-		{{ Form::submit('Create the Order!', array('class' => 'btn btn-primary')) }} {{ Form::close() }}
+			<div class="form-group">
+			    {{ Form::Label('item_id', 'Item:') }}
+			    {{ Form::select('item_id', $items, null, ['class' => 'form-control']) }}
+			</div>
+
+			{{ Form::submit('Create the Order!', array('class' => 'btn btn-primary')) }}
+		{{ Form::close() }}
 	</div>
 </body>
 </html>

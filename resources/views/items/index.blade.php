@@ -12,6 +12,9 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li>
+					<a href="{{URL::to('sales')}}">Sales</a>
+				</li>
+				<li>
 					<a href="{{URL::to('items/create')}}">Create an Item</a>
 				</li>
 			</ul>
@@ -23,7 +26,7 @@
 				{{Session::get('message') }}
 			</div>
 		@endif
-		
+
 		<h1>All Items</h1>
 		<table class="table table-striped table-bordered">
 			<thead>

@@ -85,6 +85,7 @@
                 <div class="links">
                     <a href="{{URL::to('sales')}}">Sales</a>
                     <a href="{{URL::to('items')}}">Items</a>
+                    <a href="{{URL::to('reports')}}">Reports</a>
                 </div>
             </div>
         </div>
