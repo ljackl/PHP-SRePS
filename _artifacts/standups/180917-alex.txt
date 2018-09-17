@@ -1,0 +1,26 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+
+Date: 17/09/18
+
+
+
+Talking Points
+
+=========================================
+
+Things I've done
+ 
+ - Archived Trello board and action history.
+ - Nothing database related, has already been tested.
+
+Things that were blocking me
+ - N/A.
+
+Still working on
+ - N/A.
+
+Plan on doing
+ - Having a meeting for the end of sprint.
+
+General Status
+ - = ^ u ^ =

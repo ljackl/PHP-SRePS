@@ -1,0 +1,20 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 1]
+Date: 17/09/2018
+
+Talking Points
+============================
+Things I've done
+* Report Processing for top selling items per period
+* Low stock items on reports page
+
+Things that were blocking me
+* N/A
+
+Still working on
+* N/A
+
+Plan on doing
+* End of sprint meetings
+
+General status
+* On track

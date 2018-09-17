@@ -1,0 +1,21 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+Date: 17/09/18
+
+Talking Points
+=========================================
+Things I've done
+- Tested Sales and Items integration
+	- all good
+- Created reports controller 
+
+Things that were blocking me
+- n/a
+
+Still working on
+- currently nothing
+
+Plan on doing
+- having the end of sprint meetings 
+
+General Status 
+- :)
