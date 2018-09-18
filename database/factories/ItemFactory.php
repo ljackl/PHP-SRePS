@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Item::class, function (Faker $faker) {
     return [
-        'name' => $faker->word,
+        'name' => $faker->unique()->word(),
         'description' => $faker->sentence,
         'stock' => mt_rand(1, 100),
         'cost' => (mt_rand(1*10, 100*10) / 10),

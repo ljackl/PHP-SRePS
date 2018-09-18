@@ -14,25 +14,27 @@
 		<h1>Create an Item</h1>
 
 		<!-- if there are creation errors, they will show here -->
-		{{ HTML::ul($errors->all()) }} {{ Form::open(array('url' => 'items')) }}
+		{{ HTML::ul($errors->all()) }}
 
-		<div class="form-group">
-			{{ Form::label('name', 'Item Name') }} {{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
-		</div>
+		{{ Form::open(array('url' => 'items')) }}
+			<div class="form-group">
+				{{ Form::label('name', 'Item Name') }} {{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
+			</div>
 
-		<div class="form-group">
-			{{ Form::label('description', 'Item Description') }} {{ Form::text('description', Input::old('description'), array('class' => 'form-control')) }}
-		</div>
+			<div class="form-group">
+				{{ Form::label('description', 'Item Description') }} {{ Form::text('description', Input::old('description'), array('class' => 'form-control')) }}
+			</div>
 
-		<div class="form-group">
-			{{ Form::label('stock', 'Item Stock') }} {{ Form::text('stock', Input::old('stock'), array('class' => 'form-control')) }}
-		</div>
+			<div class="form-group">
+				{{ Form::label('stock', 'Item Stock') }} {{ Form::text('stock', Input::old('stock'), array('class' => 'form-control')) }}
+			</div>
 
-		<div class="form-group">
-			{{ Form::label('cost', 'Item Cost') }} {{ Form::text('cost', Input::old('cost'), array('class' => 'form-control')) }}
-		</div>
+			<div class="form-group">
+				{{ Form::label('cost', 'Item Cost') }} {{ Form::text('cost', Input::old('cost'), array('class' => 'form-control')) }}
+			</div>
 
-		{{ Form::submit('Create the Item!', array('class' => 'btn btn-primary')) }} {{ Form::close() }}
+			{{ Form::submit('Create the Item!', array('class' => 'btn btn-primary')) }}
+		{{ Form::close() }}
 	</div>
 </body>
 </html>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Sale;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,11 +13,16 @@
 |
 */
 
-// Route for Sales
-Route::resource('sales', 'SalesController');
+// Report routes
+Route::get('reports', 'ReportController@show');
+//Route::post('reports/csv', 'ReportController@toCSV');
+Route::post('reports/view', 'ReportController@viewReport');
 
-// Route for Items
-Route::resource('items', 'ItemController');
+// Route for Items and Sales
+Route::resources([
+    'sales' => 'SalesController',
+    'items' => 'ItemController'
+]);
 
 // Home page route
 Route::get('/', function () {
