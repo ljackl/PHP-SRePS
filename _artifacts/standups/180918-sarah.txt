@@ -1,0 +1,20 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+Date: 18/09/18
+
+Talking Points
+=========================================
+Things I've done
+- Tested the Report Processing Function
+	- all g
+
+Things that were blocking me
+- n/a
+
+Still working on
+- currently nothing
+
+Plan on doing
+- end of sprint meetings and product review 
+
+General Status 
+- :)
