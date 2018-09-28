@@ -47,7 +47,7 @@
 
 				</br>
 
-				{{ Form::submit('Download (TODO)', array('class' => 'btn btn-small btn-block btn-info')) }}
+				{{ Form::submit('Download Sales', array('class' => 'btn btn-small btn-block btn-info')) }}
 			{{ Form::close() }}
 		</div>
 

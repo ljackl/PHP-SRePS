@@ -33,16 +33,34 @@ class ReportController extends Controller
         // Validate dates
         $validated = $request->validated();
 
+        // Define time and create csv object
         $from = Input::get('select_from');
         $to = Input::get('select_to');
+        $csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
+
+        // Get all sales for period
         $sales = Sale::whereBetween('created_at', [$from, $to])->orderBy('created_at')->get();
 
-        $csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
         $csv->insertOne(\Schema::getColumnListing('sales'));
         foreach ($sales as $sale) {
             $csv->insertOne($sale->toArray());
         }
 
+        // Get all sales for period
+        $topSold = Sale::groupBy('item_id')
+                    ->selectRaw('sum(quantity) as quantity_total, item_id')
+                    ->whereBetween('created_at', [$from, $to])
+                    ->orderBy('quantity_total', 'desc')
+                    ->pluck('quantity_total','item_id')
+                    ->take(5);
+        //dd($topSold);
+
+        $csv->insertOne(['item_id', 'quantity_total']);
+        foreach ($topSold as $item => $qty) {
+            $csv->insertOne([$item, $qty]);
+        }
+
+        // Send for download
         $csv->output($from.'_'.$to.'_sales.csv');
     }
 
