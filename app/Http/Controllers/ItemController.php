@@ -119,7 +119,21 @@ class ItemController extends Controller
     public function add($id)
     {
         $item = Item::find($id);
-        return View::make('items.add')->with('item', $item);
+        $item->stock += 5;
+        $item->save();
+        return Redirect::to('items');
+    }
+
+    public function add20($id)
+    {
+        $item = Item::find($id);
+        $item->stock = Item::set(5);
+        return Redirect::to('items');
+    }
+    public function add50($id)
+    {
+        $item->stock = Item::set(5);
+        return Redirect::to('items');
     }
 
     /**

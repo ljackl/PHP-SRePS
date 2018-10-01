@@ -17,3 +17,7 @@ Route::resource('items', 'ItemController');
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('items', 'ItemController@add');
+
+Route::get('items/{id}/addstock', 'ItemController@add');

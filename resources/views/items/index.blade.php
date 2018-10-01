@@ -46,7 +46,7 @@
 							<!-- show, edit, and delete buttons -->
 							<a class="btn btn-small btn-success" href="{{URL::to('items/'.$value->id)}}">View</a>
 							<a class="btn btn-small btn-info" href="{{URL::to('items/'.$value->id.'/edit')}}">Edit</a>
-							<a class="btn btn-small btn-danger" href="{{URL::to('items/'.$value->id.'/add')}}">Add Stock</a>
+							<a class="btn btn-small btn-danger" href="{{URL::to('items/'.$value->id.'/addstock')}}">Buy Stock (5)</a>
 							{{ Form::open(array('url' => 'items/' . $value->id, 'class' => 'pull-right')) }} {{ Form::hidden('_method', 'DELETE') }} {{ Form::submit('Delete', array('class' => 'btn btn-small btn-warning')) }} {{ Form::close() }}
 						</td>
 					</tr>
