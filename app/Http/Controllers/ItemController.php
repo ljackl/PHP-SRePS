@@ -116,6 +116,12 @@ class ItemController extends Controller
         return Redirect::to('items');
     }
 
+    public function add($id)
+    {
+        $item = Item::find($id);
+        return View::make('items.add')->with('item', $item);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
