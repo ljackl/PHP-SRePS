@@ -1,0 +1,21 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 2]
+
+Date: 28/09/2018
+
+Talking Points
+============================
+Things I've done
+- Individual task 8.3C
+
+Things that were blocking me
+- N/A
+
+Still working on
+- N/A
+
+Plan on doing
+- Individual Distinction Tasks
+- Predict salesfor an item for a variable period of time
+
+General status
+- Doing well, looking forward to working on this and getting it done

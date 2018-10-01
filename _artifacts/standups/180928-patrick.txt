@@ -1,0 +1,20 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 2]
+Date: 28/09/2018
+
+Talking Points
+============================
+Things I've done
+* Assisted with and submitted 8.2
+* Added CSV generation functionality
+
+Things that were blocking me
+* N/A
+
+Still working on
+* N/A
+
+Plan on doing
+* Expanding the items db structure to incoporate category data
+
+General status
+* Doing well, the planning is a bit more fleshed out this time around
