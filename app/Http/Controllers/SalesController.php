@@ -55,18 +55,17 @@ class SalesController extends Controller
         // Validate
         $validated = $request->validated();
 
-        // Check item quantity
+        // Check item quantity and stocks
         $item = Item::find(Input::get('item_id'));
-        if ($item->stock < 10) {
-            $message = 'Item '.$item->name.' has low stock!';
-        } else {
-            $message = 'Successfully created!';
-        }
-
-        // Check stock covers sale quantity
         if ($item->stock < Input::get('quantity')) {
             Session::flash('message', 'Error: Not enough stock for sale!');
             return Redirect::to('sales');
+        }
+
+        if ($item->stock - Input::get('quantity') < 10) {
+            $message = 'Item '.$item->name.' has low stock!';
+        } else {
+            $message = 'Successfully created!';
         }
 
         // Create new object
@@ -77,7 +76,7 @@ class SalesController extends Controller
         $sale->item_id = Input::get('item_id');
         $sale->save();
 
-        //update items stock
+        // Update item stock
         $item->stock -= $sale->quantity;
         $item->save();
 
