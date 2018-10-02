@@ -77,6 +77,10 @@ class SalesController extends Controller
         $sale->item_id = Input::get('item_id');
         $sale->save();
 
+        //update items stock
+        $item->stock -= $sale->quantity;
+        $item->save();
+
         // Redirect
         Session::flash('message', $message);
         return Redirect::to('sales');
