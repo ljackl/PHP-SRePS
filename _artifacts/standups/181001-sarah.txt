@@ -1,0 +1,19 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 2]
+Date: 01/10/18
+
+Talking Points
+=========================================
+Things I've done
+- Tested CSV file generation
+
+Things that were blocking me
+- n/a
+
+Still working on
+- Individual distinction task 8.4
+
+Plan on doing
+- Task: Update Item stock levels when a sale is created 
+
+General Status 
+- I'm sick
