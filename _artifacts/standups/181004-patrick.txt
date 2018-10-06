@@ -1,0 +1,20 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 2]
+Date: 04/10/2018
+
+Talking Points
+============================
+Things I've done
+* Wrapped up 9.1
+
+Things that were blocking me
+* N/A
+
+Still working on
+* N/A
+
+Plan on doing
+* 8.5D
+* Updating Item MVC for category data
+
+General status
+* On track

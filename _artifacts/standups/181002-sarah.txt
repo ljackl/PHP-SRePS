@@ -1,0 +1,22 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 2]
+Date: 02/10/18
+
+Talking Points
+=========================================
+Things I've done
+- Partially tested stock alerts function
+- Task: Update Item stock levels when a sale is created
+- Tried to test stock levels 
+
+Things that were blocking me
+- my dev environment stuffed up 
+
+Still working on
+- Individual distinction task 8.4
+
+Plan on doing
+- Individual Credit Task 10.6
+- Testing stock alerts fully
+
+General Status 
+- I'm sick

@@ -1,0 +1,27 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 2]
+
+Date: 4/10/18
+
+
+
+Talking Points
+
+=========================================
+
+Things I've done
+ 
+ - Took yet another Trello screenshot.
+ - 8.4D.
+
+Things that were blocking me
+ - N/A.
+
+Still working on
+ - Laravel stuff.
+
+Plan on doing
+ - D tasks.
+ - Backlog task.
+
+General Status
+ - = - o - =

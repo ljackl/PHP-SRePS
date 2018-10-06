@@ -1,0 +1,20 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 2]
+Date: 05/10/18
+
+Talking Points
+=========================================
+Things I've done
+- n/a
+
+Things that were blocking me
+- n/a
+
+Still working on
+- n/a
+
+Plan on doing
+- Individual Credit Task 10.6
+- Documentation Task
+
+General Status 
+- productivity has been pretty low

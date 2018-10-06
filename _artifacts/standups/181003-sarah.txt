@@ -1,0 +1,22 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 2]
+Date: 03/10/18
+
+Talking Points
+=========================================
+Things I've done
+- Finished testing stock alerts function
+- Distinction task 8.4 & 8.5
+- re-setup my db 
+
+Things that were blocking me
+- n/a
+
+Still working on
+- n/a
+
+Plan on doing
+- Individual Credit Task 10.6
+- Documentation Task
+
+General Status 
+- I'm sick
