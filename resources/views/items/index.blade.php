@@ -32,6 +32,7 @@
 			<thead>
 				<tr>
 					<th>Name</th>
+					<th>Category</th>
 					<th>Description</th>
 					<th>Stock</th>
 					<th>Cost</th>
@@ -42,6 +43,7 @@
       			@foreach($items as $key => $value)
 					<tr>
 						<td>{{ $value->name }}</td>
+						<td>{{ $value->category }}</td>
 						<td>{{ $value->description }}</td>
 						<td>{{ $value->stock }}</td>
 						<td>${{ $value->cost }}</td>
