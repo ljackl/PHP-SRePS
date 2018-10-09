@@ -16,6 +16,22 @@ use Redirect;
 
 class ItemController extends Controller
 {
+    public static function getEnumValues($table, $column) {
+      $type = DB::select(DB::raw("SHOW COLUMNS FROM $table WHERE Field = '{$column}'"))[0]->Type ;
+
+      preg_match('/^enum\((.*)\)$/', $type, $matches);
+
+      $enum = array();
+
+      foreach( explode(',', $matches[1]) as $value )
+      {
+        $v = trim( $value, "'" );
+        $enum = array_add($enum, $v, $v);
+      }
+
+      return $enum;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +53,8 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return View::make('items.create');
+        $categories = ItemController::getEnumValues('items','category') ;
+        return View::make('items.create')->with('categories', $categories);
     }
 
     /**
@@ -54,6 +71,7 @@ class ItemController extends Controller
         // Create new object
         $item = new Item;
         $item->name = Input::get('name');
+        $item->category = Input::get('category');
         $item->description = Input::get('description');
         $item->stock = Input::get('stock');
         $item->cost = Input::get('cost');
@@ -89,7 +107,10 @@ class ItemController extends Controller
     public function edit($id)
     {
         $item = Item::find($id);
-        return View::make('items.edit')->with('item', $item);
+        $categories = ItemController::getEnumValues('items','category') ;
+        return View::make('items.edit')
+            ->with('item', $item)
+            ->with('categories', $categories);
     }
 
     /**
@@ -105,6 +126,7 @@ class ItemController extends Controller
 
         $item = Item::find($id);
         $item->name = Input::get('name');
+        $item->category = Input::get('category');
         $item->description = Input::get('description');
         $item->stock = Input::get('stock');
         $item->cost = Input::get('cost');
