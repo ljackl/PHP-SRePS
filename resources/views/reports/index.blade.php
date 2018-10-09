@@ -68,31 +68,6 @@
 				{{ Form::submit('Download Sales', array('class' => 'btn btn-small btn-block btn-info')) }}
 			{{ Form::close() }}
 		</div>
-
-		</br>
-
-		<h1>Low Stock Items</h1>
-		<table class="table table-striped table-bordered">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Stock</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-      			@foreach($items as $key => $value)
-					<tr>
-						<td>{{ $value->name }}</td>
-						<td>{{ $value->stock }}</td>
-						<td>
-							<!-- show, edit, and delete buttons -->
-							<a class="btn btn-small btn-block btn-primary" href="">Buy (TODO)</a>
-						</td>
-					</tr>
-      			@endforeach
-			</tbody>
-		</table>
 	</div>
 </body>
 </html>
