@@ -36,6 +36,24 @@
 			{{ Form::close() }}
 		</div>
 
+		<h1>Predict sales for single item</h1>
+		<div class="jumbotron text-center">
+			{{ Form::open(array('url' => 'reports/predict', 'class' => 'pull-right')) }}
+				{{ Form::label('item_id', 'Item') }}
+			    {{ Form::select('item_id', $itemid, null, ['class' => 'form-control']) }}
+
+				{{ Form::label('select_from', 'Select From') }}
+				{{ Form::date('select_from', null, array('class' => 'form-control')) }}
+
+				{{ Form::label('select_to', 'Select To') }}
+				{{ Form::date('select_to', null, array('class' => 'form-control')) }}
+
+				</br>
+
+				{{ Form::submit('Go', array('class' => 'btn btn-small btn-block btn-info')) }}
+			{{ Form::close() }}
+		</div>
+
 		<h1>Export CSV</h1>
 		<div class="jumbotron text-center">
 			{{ Form::open(array('url' => 'reports/csv', 'class' => 'pull-right')) }}

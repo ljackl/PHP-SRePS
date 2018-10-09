@@ -17,6 +17,7 @@ use App\Sale;
 Route::get('reports', 'ReportController@show');
 Route::post('reports/csv', 'ReportController@toCSV');
 Route::post('reports/view', 'ReportController@viewReport');
+Route::post('reports/predict', 'ReportController@predictItemSales');
 
 // Route for Items and Sales
 Route::resources([
