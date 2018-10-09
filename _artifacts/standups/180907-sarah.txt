@@ -1,0 +1,20 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+Date: 7/09/18
+
+Talking Points
+=========================================
+Things I've done
+- Tested Sales-MVC
+	- all good
+
+Things that were blocking me
+- nah
+
+Still working on
+- currently nothing
+
+Plan on doing
+- having a meeting to plan the report processing function
+
+General Status 
+- the uni break is about to start

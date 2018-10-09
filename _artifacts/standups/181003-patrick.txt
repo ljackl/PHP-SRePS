@@ -1,0 +1,19 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 2]
+Date: 03/10/2018
+
+Talking Points
+============================
+Things I've done
+* 8.4D Quality Modeling
+
+Things that were blocking me
+* N/A
+
+Still working on
+* N/A
+
+Plan on doing
+* 8.5D
+
+General status
+* On track

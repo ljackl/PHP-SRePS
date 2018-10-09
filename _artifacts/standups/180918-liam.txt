@@ -1,0 +1,19 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+Date: 18/09/18
+
+Talking Points
+=========================================
+Things I've done
+- Merged reports branch into master
+
+Things that were blocking me
+- Nil
+
+Still working on
+- Nothing
+
+Plan on doing
+- EOS Meeting
+
+General Status 
+- ◉‿◉ Putting on a brave smile for the next 6 weeks

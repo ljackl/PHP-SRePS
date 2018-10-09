@@ -1,0 +1,28 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+
+Date: 07/09/18
+
+
+
+Talking Points
+
+=========================================
+
+Things I've done
+ 
+ - Ran through and recompiled the activity of the Trello Board.
+ - Tested the db and the new features.
+ - Pushed my previous work earlier today.
+
+Things that were blocking me
+ - Lack of Laravel knowledge.
+ - Sadness of being a burden due to crippling PHP and web rustiness haha.
+
+Still working on
+ - Endless backlog of work, aside from that, nothing, heh.
+
+Plan on doing
+ - Having a meeting and moving forward with our project.
+
+General Status
+ - = ^ o ^ =

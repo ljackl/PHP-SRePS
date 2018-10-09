@@ -25,6 +25,7 @@ class StoreItem extends FormRequest
     {
         return [
             'name' => 'required|max:100',
+            'category' => 'required',
             'description' => 'max:191',
             'stock' => 'required|numeric',
             'cost' => 'required|numeric',

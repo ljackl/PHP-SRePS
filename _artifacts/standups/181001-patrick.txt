@@ -1,0 +1,20 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 2]
+Date: 01/10/2018
+
+Talking Points
+============================
+Things I've done
+* Stock Alerts
+* Block creating a sale that has more quantity than the stock can cover
+
+Things that were blocking me
+* N/A
+
+Still working on
+* N/A
+
+Plan on doing
+* Expanding the items db structure to incoporate category data
+
+General status
+* Doing well

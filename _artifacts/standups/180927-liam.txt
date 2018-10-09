@@ -1,0 +1,20 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 2]
+Date: 27/09/2018
+
+Talking Points
+============================
+Things I've done
+* Sprint 2 Planning Meeting
+
+Things that were blocking me
+* N/A
+
+Still working on
+* N/A
+
+Plan on doing
+* Selecting sprint tasks
+* Individual tasks
+
+General status
+* Doing well, looking forward to working on this and getting it done

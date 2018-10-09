@@ -25,7 +25,10 @@ class ReportController extends Controller
     public function show()
     {
         $items = Item::orderBy('stock', 'asc')->take(5)->get();
-        return View::make('reports.index')->with('items', $items);
+        $itemid = Item::pluck('name', 'id');
+        return View::make('reports.index')
+            ->with('items', $items)
+            ->with('itemid', $itemid);
     }
 
     public function toCSV(TimeRange $request)
@@ -33,16 +36,34 @@ class ReportController extends Controller
         // Validate dates
         $validated = $request->validated();
 
+        // Define time and create csv object
         $from = Input::get('select_from');
         $to = Input::get('select_to');
+        $csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
+
+        // Get all sales for period
         $sales = Sale::whereBetween('created_at', [$from, $to])->orderBy('created_at')->get();
 
-        $csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
         $csv->insertOne(\Schema::getColumnListing('sales'));
         foreach ($sales as $sale) {
             $csv->insertOne($sale->toArray());
         }
 
+        // Get all sales for period
+        $topSold = Sale::groupBy('item_id')
+                    ->selectRaw('sum(quantity) as quantity_total, item_id')
+                    ->whereBetween('created_at', [$from, $to])
+                    ->orderBy('quantity_total', 'desc')
+                    ->pluck('quantity_total','item_id')
+                    ->take(5);
+        //dd($topSold);
+
+        $csv->insertOne(['item_id', 'quantity_total']);
+        foreach ($topSold as $item => $qty) {
+            $csv->insertOne([$item, $qty]);
+        }
+
+        // Send for download
         $csv->output($from.'_'.$to.'_sales.csv');
     }
 
@@ -69,9 +90,36 @@ class ReportController extends Controller
                     ->pluck('quantity_total','item_id')
                     ->take(5);
         //var_dump($topSold);
+        //dd($topSold);
 
         return View::make('reports.view')
             ->with('sales', $sales)
             ->with('topSold', $topSold);
+    }
+
+    public function predictItemSales(TimeRange $request)
+    {
+        // Validate dates
+        $validated = $request->validated();
+
+        $itemid = Input::get('item_id');
+        $from = Input::get('select_from');
+        $to = Input::get('select_to');
+        $sales = Sale::whereBetween('created_at', [$from, $to])
+                    ->where('item_id', $itemid)
+                    ->orderBy('created_at')->get();
+        $topSold = null;
+        $estSales = Sale::groupBy('item_id')
+                    ->selectRaw('ceil(avg(quantity)) as estimated_quantity, item_id')
+                    ->where('item_id', $itemid)
+                    ->orderBy('item_id')
+                    ->pluck('estimated_quantity','item_id');
+        //dd($estSales);
+        //dd($itemid);
+
+        return View::make('reports.view')
+            ->with('sales', $sales)
+            ->with('topSold', $topSold)
+            ->with('estSales', $estSales);
     }
 }

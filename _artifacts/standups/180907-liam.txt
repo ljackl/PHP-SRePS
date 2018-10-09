@@ -1,0 +1,19 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+Date: 7/09/18
+
+Talking Points
+=========================================
+Things I've done
+- Created the edit sales view
+
+Things that were blocking me
+- Lack of knowledge in Laravel
+
+Still working on
+- Nothing
+
+Plan on doing
+- Nothing
+
+General Status 
+- Projects well ahead of schedule and I'm happy I'm not holding anyone up anymore

@@ -21,6 +21,7 @@
 		</nav>
 		<h1>Showing Item {{ $item->name }}</h1>
 		<div class="jumbotron text-center">
+			<p>Category: {{ $item->category }}</p>
 			<p>Description: {{ $item->description }}</p>
 			<p>Stock: {{ $item->stock }}</p>
 			<p>Cost: ${{ $item->cost }}</p>

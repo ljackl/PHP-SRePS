@@ -1,0 +1,19 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+Date: 6/09/18
+
+Talking Points
+=========================================
+Things I've done
+- Attempted to start adding edit sales view
+
+Things that were blocking me
+- Lack of access to a full computer, at uni all day without a laptop
+
+Still working on
+- Making Edit Sales View
+
+Plan on doing
+- Actually starting edit sales view and logic
+
+General Status 
+- Getting there, but at least the project is ahaed of schedule

@@ -24,16 +24,16 @@ Create a local .env copy
 cp .env.example .env
 ```
 
-Generate encryption key  
-```bash
-php artisan key:generate
-```
-
-Edit database connection properties  
+Edit database connection properties in .env  
 ```
 DB_DATABASE=php_sreps_db
 DB_USERNAME=root
 DB_PASSWORD=
+```
+
+Generate encryption key  
+```bash
+php artisan key:generate
 ```
 
 Create the database either using phpMyAdmin or from the command line  
@@ -64,8 +64,7 @@ Run from within the PHP-SRePS project
 ```bash
 php artisan serve
 ```
-Browse to `localhost:8000`
+Browse to http://localhost:8000
 
 ### Option 2:
-Copy the Laravel project into XAMPP's htdocs folder and browse to it  
-`localhost/PHP-SRePS/public/`
+Copy the Laravel project into XAMPP's htdocs folder and browse to http://localhost/PHP-SRePS/public/  

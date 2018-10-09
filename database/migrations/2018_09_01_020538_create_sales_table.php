@@ -19,7 +19,7 @@ class CreateSalesTable extends Migration
             $table->integer('quantity')->comment('Quantity sold');
             $table->timestamps();
             $table->integer('item_id')->unsigned();
-            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
 

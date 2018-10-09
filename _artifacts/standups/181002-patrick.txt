@@ -1,0 +1,21 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 2]
+Date: 02/10/2018
+
+Talking Points
+============================
+Things I've done
+* Extended items table structure with category enum data
+* Tested Item stock levels update when a sale is created
+* Updated Stock alerts functionality to consider post sale stock levels
+
+Things that were blocking me
+* N/A
+
+Still working on
+* N/A
+
+Plan on doing
+* Expanding the items MVC to include category data
+
+General status
+* All is well

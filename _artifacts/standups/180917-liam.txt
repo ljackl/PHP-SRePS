@@ -1,0 +1,19 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 1]
+Date: 17/09/18
+Talking Points
+
+=========================================
+Things I've done
+- Just individual tasks, sprint is alrady complete
+
+Things that were blocking me
+- Nil
+
+Still working on
+- Nothing
+
+Plan on doing
+- EOS Meeting
+
+General Status 
+- ◉‿◉

@@ -1,5 +1,7 @@
 <?php
 
+use App\Sale;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,14 +12,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('sales', "SalesController");
 
-Route::resource('items', 'ItemController');
+// Buying stocks
+Route::get('items/{id}/addstock', 'ItemController@addStock');
 
+// Report routes
+Route::get('reports', 'ReportController@show');
+Route::post('reports/csv', 'ReportController@toCSV');
+Route::post('reports/view', 'ReportController@viewReport');
+Route::post('reports/predict', 'ReportController@predictItemSales');
+
+// Route for Items and Sales
+Route::resources([
+    'sales' => 'SalesController',
+    'items' => 'ItemController'
+]);
+
+// Home page route
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::post('items', 'ItemController@add');
-
-Route::get('items/{id}/addstock', 'ItemController@add');

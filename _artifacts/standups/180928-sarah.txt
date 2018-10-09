@@ -1,0 +1,20 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 2]
+Date: 28/09/18
+
+Talking Points
+=========================================
+Things I've done
+- got the intitial burndown chart for task 8.2 
+
+Things that were blocking me
+- n/a
+
+Still working on
+- n/a
+
+Plan on doing
+- Individual distinction task 8.4
+- Task: Update Item stock levels when a sale is created 
+
+General Status 
+- :)
