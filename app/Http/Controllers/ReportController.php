@@ -78,21 +78,12 @@ class ReportController extends Controller
         $to = Input::get('select_to');
         $sales = Sale::whereBetween('created_at', [$from, $to])->orderBy('created_at')->get();
 
-        /*
-        // Sums all items sales and return the 5 most sold items
-        SELECT item_id, SUM(quantity) AS quantity_total
-        FROM sales
-        GROUP BY item_id
-        ORDER BY quantity_total DESC LIMIT 5
-        */
         $topSold = Sale::groupBy('item_id')
                     ->selectRaw('sum(quantity) as quantity_total, item_id')
                     ->whereBetween('created_at', [$from, $to])
                     ->orderBy('quantity_total', 'desc')
                     ->pluck('quantity_total','item_id')
                     ->take(5);
-        //var_dump($topSold);
-        //dd($topSold);
 
         return View::make('reports.view')
             ->with('sales', $sales)
@@ -104,53 +95,54 @@ class ReportController extends Controller
         // Validate dates
         $validated = $request->validated();
 
-        $itemid = Input::get('item_id');
+        // Get item details
+        $item_id = Input::get('item_id');
+        $item = Item::find($item_id);
+
+        // Get dates from input
         $from = Input::get('select_from');
         $to = Input::get('select_to');
-        $sales = Sale::whereBetween('created_at', [$from, $to])
-                    ->where('item_id', $itemid)
-                    ->orderBy('created_at')->get();
 
-        $topSold = null;
-        //get total time span
+        // Get total time span
         $earliestEntry = DB::Table('sales')
-                    ->where('item_id', $itemid)
+                    ->where('item_id', $item_id)
                     ->min('created_at');
-
         $latestEntry = DB::Table('sales')
-                    ->where('item_id', $itemid)
+                    ->where('item_id', $item_id)
                     ->max('created_at');
 
         $startTime = Carbon::Parse($latestEntry);
         $finishTime = Carbon::Parse($earliestEntry);
         $totalDuration = $finishTime-> diffInDays($startTime);
+        if ($totalDuration == 0)
+        {
+            Session::flash('message', 'Error: Not enough data for prediction!');
+            return Redirect::to('reports');
+        }
 
-        //get selected time span
+        // Get selected time span
         $startTime = Carbon::Parse($from);
         $finishTime = Carbon::Parse($to);
         $selectedDuration = $finishTime-> diffInDays($startTime);
 
-        if ($totalDuration == 0){Session::flash('message','Error:Not enough data for prediction!');
-              return Redirect::to('reports');}
-        //get period
+        // Get period
         $period = $selectedDuration / $totalDuration;
         if ($period > 1) $period = 1;
 
-        $estSales = Sale::groupBy('item_id')
-                    ->selectRaw('SUM(quantity) as estimated_quantity, item_id')
-                    ->where('item_id', $itemid)
-                    ->whereBetween('created_at', [$from, $to])
-                    ->orderBy('item_id')
-                    ->pluck('estimated_quantity');
+        // Get sum of quantity
+        $quantitySum = Sale::groupBy('item_id')
+                    ->selectRaw('sum(quantity) as quantity_total')
+                    ->where('item_id', $item_id)
+                    ->orderBy('quantity_total')
+                    ->pluck('quantity_total');
 
-        //quantity per period
-        $quantityPerPeriod = round($estSales[0] * $period);
+        // quantity per period
+        $quantityPerPeriod = round($quantitySum[0] * $period);
 
         return View::make('reports.view')
-            ->with('sales', $sales)
-            ->with('topSold', $topSold)
             ->with('quantityPerPeriod', $quantityPerPeriod)
-            ->with('item_id', $itemid);
+            ->with('item', $item)
+            ->with('selectedDuration', $selectedDuration);
     }
 
     public function predictCategorySales(TimeRange $request)
@@ -158,14 +150,12 @@ class ReportController extends Controller
         // Validate dates
         $validated = $request->validated();
 
+        // Get category from input
         $category = Input::get('category');
+
+        // Get dates from input
         $from = Input::get('select_from');
         $to = Input::get('select_to');
-        $sales = Sale::join('items', 'sales.item_id', '=', 'items.id')
-                    ->where('items.category', $category)
-                    ->orderBy('sales.created_at')->get();
-
-        $topSold = null;
 
         // Get total time span
         $earliestEntry = Sale::join('items', 'sales.item_id', '=', 'items.id')
@@ -178,6 +168,11 @@ class ReportController extends Controller
         $startTime = Carbon::parse($latestEntry);
         $finishTime = Carbon::parse($earliestEntry);
         $totalDuration = $finishTime->diffInDays($startTime);
+        if ($totalDuration == 0)
+        {
+            Session::flash('message', 'Error: Not enough data for prediction!');
+            return Redirect::to('reports');
+        }
 
         // Get selected time span
         $startTime = Carbon::parse($from);
@@ -200,9 +195,8 @@ class ReportController extends Controller
         $quantityPerPeriod = round($quantitySum[0] * $period);
 
         return View::make('reports.view')
-            ->with('sales', $sales)
-            ->with('topSold', $topSold)
             ->with('quantityPerPeriod', $quantityPerPeriod)
-            ->with('category', $category);
+            ->with('category', $category)
+            ->with('selectedDuration', $selectedDuration);
     }
 }
