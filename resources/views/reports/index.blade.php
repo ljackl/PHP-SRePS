@@ -21,7 +21,7 @@
 
 		{{ HTML::ul($errors->all()) }}
 
-		<h1>Generate report</h1>
+		<h1>View general report</h1>
 		<div class="jumbotron text-center">
 			{{ Form::open(array('url' => 'reports/view', 'class' => 'pull-right')) }}
 				{{ Form::label('select_from', 'Select From') }}
