@@ -1,0 +1,20 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 2]
+Date: 09/10/18
+
+Talking Points
+=========================================
+Things I've done
+- Tested individual item prediction
+- 7.4 Documentation Task 
+
+Things that were blocking me
+- n/a
+
+Still working on
+-n/a
+
+Plan on doing
+- Individual Distinction Task 10.6
+
+General Status 
+- :) 
