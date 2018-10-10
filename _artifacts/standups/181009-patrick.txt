@@ -1,0 +1,20 @@
+Daily Standup for [Group 1 / PHP-SRePS / Sprint 2]
+Date: 09/10/2018
+
+Talking Points
+============================
+Things I've done
+* Merged all branches
+
+Things that were blocking me
+* N/A
+
+Still working on
+* N/A
+
+Plan on doing
+* End of sprint meetings
+* Final individual tasks
+
+General status
+* On the final stretch

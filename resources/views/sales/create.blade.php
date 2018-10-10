@@ -18,11 +18,13 @@
 
 		{{ Form::open(array('url' => 'sales')) }}
 			<div class="form-group">
-				{{ Form::label('sale', 'Sale Price') }} {{ Form::text('sale', Input::old('sale'), array('class' => 'form-control')) }}
+				{{ Form::label('sale', 'Sale Price') }}
+				{{ Form::text('sale', Input::old('sale'), array('class' => 'form-control')) }}
 			</div>
 
 			<div class="form-group">
-				{{ Form::label('quantity', 'Quantity Sold') }} {{ Form::text('quantity', Input::old('quantity'), array('class' => 'form-control')) }}
+				{{ Form::label('quantity', 'Quantity Sold') }}
+				{{ Form::text('quantity', Input::old('quantity'), array('class' => 'form-control')) }}
 			</div>
 
 			<div class="form-group">

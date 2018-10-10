@@ -19,6 +19,7 @@
 				</li>
 			</ul>
 		</nav>
+
 		<h1>Showing Item {{ $item->name }}</h1>
 		<div class="jumbotron text-center">
 			<p>Category: {{ $item->category }}</p>
@@ -26,6 +27,28 @@
 			<p>Stock: {{ $item->stock }}</p>
 			<p>Cost: ${{ $item->cost }}</p>
 		</div>
+
+		<h1>Sales</h1>
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Sale ID</th>
+                    <th>Sale Price</th>
+                    <th>Quantity Sold</th>
+                    <th>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+      			@foreach($item->sales as $key => $value)
+					<tr>
+                        <td><a href="{{URL::to('sales/'.$value->id)}}">{{$value->id}}</a></td>
+                        <td>${{$value->sale}}</td>
+                        <td>{{$value->quantity}}</td>
+                        <td>{{$value->created_at}}</td>
+					</tr>
+      			@endforeach
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>

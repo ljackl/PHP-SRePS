@@ -32,7 +32,7 @@
 			<thead>
 				<tr>
 					<th>Sale ID</th>
-                    <th>Item Name</th>
+                    <th>Item Sold</th>
                     <th>Sale Price</th>
                     <th>Quantity Sold</th>
                     <th>Date</th>
@@ -43,7 +43,7 @@
       			@foreach($sales as $key => $value)
 					<tr>
                         <td>{{$value->id}}</td>
-                        <td>{{$value->item->name}}</td>
+                        <td><a href="{{URL::to('items/'.$value->item->id)}}">{{$value->item->name}}</a></td>
                         <td>${{$value->sale}}</td>
                         <td>{{$value->quantity}}</td>
                         <td>{{$value->created_at}}</td>

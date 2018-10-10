@@ -1,0 +1,21 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 2]
+Date: 08/10/18
+
+Talking Points
+=========================================
+Things I've done
+- Pass Task 10.5
+- Credit Task 10.6
+- Predict the sales of an item for a variable period of time
+
+Things that were blocking me
+- N/A
+
+Still working on
+- N/A
+
+Plan on doing
+- Distinction Task 10.7
+
+General Status
+- Nearly Done!!!
