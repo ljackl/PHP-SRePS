@@ -31,6 +31,7 @@
 		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
+					<th>Item ID</th>
 					<th>Name</th>
 					<th>Category</th>
 					<th>Description</th>
@@ -42,6 +43,7 @@
 			<tbody>
       			@foreach($items as $key => $value)
 					<tr>
+						<td>{{ $value->id }}</td>
 						<td>{{ $value->name }}</td>
 						<td>{{ $value->category }}</td>
 						<td>{{ $value->description }}</td>
