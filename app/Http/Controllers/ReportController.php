@@ -112,19 +112,45 @@ class ReportController extends Controller
                     ->orderBy('created_at')->get();
 
         $topSold = null;
+        //get total time span
+        $earliestEntry = DB::Table('sales')
+                    ->where('item_id', $itemid)
+                    ->min('created_at');
+
+        $latestEntry = DB::Table('sales')
+                    ->where('item_id', $itemid)
+                    ->max('created_at');
+
+        $startTime = Carbon::Parse($latestEntry);
+        $finishTime = Carbon::Parse($earliestEntry);
+        $totalDuration = $finishTime-> diffInDays($startTime);
+
+        //get selected time span
+        $startTime = Carbon::Parse($from);
+        $finishTime = Carbon::Parse($to);
+        $selectedDuration = $finishTime-> diffInDays($startTime);
+
+        if ($totalDuration == 0){Session::flash('message','Error:Not enough data for prediction!');
+              return Redirect::to('reports');}
+        //get period
+        $period = $selectedDuration / $totalDuration;
+        if ($period > 1) $period = 1;
 
         $estSales = Sale::groupBy('item_id')
-                    ->selectRaw('ceil(avg(quantity)) as estimated_quantity, item_id')
+                    ->selectRaw('SUM(quantity) as estimated_quantity, item_id')
                     ->where('item_id', $itemid)
+                    ->whereBetween('created_at', [$from, $to])
                     ->orderBy('item_id')
-                    ->pluck('estimated_quantity','item_id');
-        //dd($estSales);
-        //dd($itemid);
+                    ->pluck('estimated_quantity');
+
+        //quantity per period
+        $quantityPerPeriod = round($estSales[0] * $period);
 
         return View::make('reports.view')
             ->with('sales', $sales)
             ->with('topSold', $topSold)
-            ->with('estSales', $estSales);
+            ->with('quantityPerPeriod', $quantityPerPeriod)
+            ->with('item_id', $itemid);
     }
 
     public function predictCategorySales(TimeRange $request)
@@ -136,21 +162,47 @@ class ReportController extends Controller
         $from = Input::get('select_from');
         $to = Input::get('select_to');
         $sales = Sale::join('items', 'sales.item_id', '=', 'items.id')
-                    ->where('category', $category)
+                    ->where('items.category', $category)
                     ->orderBy('sales.created_at')->get();
 
         $topSold = null;
 
-        $estSales = Sale::groupBy('category')
+        // Get total time span
+        $earliestEntry = Sale::join('items', 'sales.item_id', '=', 'items.id')
+            ->where('items.category', $category)
+            ->min('sales.created_at');
+        $latestEntry = Sale::join('items', 'sales.item_id', '=', 'items.id')
+            ->where('items.category', $category)
+            ->max('sales.created_at');
+
+        $startTime = Carbon::parse($latestEntry);
+        $finishTime = Carbon::parse($earliestEntry);
+        $totalDuration = $finishTime->diffInDays($startTime);
+
+        // Get selected time span
+        $startTime = Carbon::parse($from);
+        $finishTime = Carbon::parse($to);
+        $selectedDuration = $finishTime->diffInDays($startTime);
+
+        // Get period
+        $period = $selectedDuration / $totalDuration;
+        if ($period > 1) $period = 1;
+
+        // Get sum of quantity
+        $quantitySum = Sale::groupBy('category')
                     ->join('items', 'sales.item_id', '=', 'items.id')
-                    ->selectRaw('ceil(avg(quantity)) as estimated_quantity, category')
+                    ->selectRaw('sum(quantity) as quantity_total')
                     ->where('category', $category)
                     ->orderBy('category')
-                    ->pluck('estimated_quantity','category');
+                    ->pluck('quantity_total');
+
+        // quantity per period
+        $quantityPerPeriod = round($quantitySum[0] * $period);
 
         return View::make('reports.view')
             ->with('sales', $sales)
             ->with('topSold', $topSold)
-            ->with('estSales', $estSales);
+            ->with('quantityPerPeriod', $quantityPerPeriod)
+            ->with('category', $category);
     }
 }
