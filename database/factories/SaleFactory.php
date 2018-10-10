@@ -16,8 +16,8 @@ use Faker\Generator as Faker;
 $factory->define(App\Sale::class, function (Faker $faker) {
     return [
         'sale' => (mt_rand(1*10, 20*10) / 10),
-        'quantity' => mt_rand(1, 5),
+        'quantity' => mt_rand(1, 10),
         'created_at' => $faker->dateTimeThisYear,
-        'item_id' => mt_rand(1, 182),
+        'item_id' => mt_rand(1, 50),
     ];
 });

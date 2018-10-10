@@ -12,6 +12,6 @@ class SalesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Sale::class, 500)->create();
+        factory(App\Sale::class, 1000)->create();
     }
 }

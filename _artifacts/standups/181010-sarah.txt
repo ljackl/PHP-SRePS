@@ -1,0 +1,20 @@
+Daily Standup for [Group 01 / PHP-SRePS / Sprint 2]
+Date: 10/10/18
+
+Talking Points
+=========================================
+Things I've done
+- Fixed individual and category item prediction
+- merged branch into master
+
+Things that were blocking me
+- 
+
+Still working on
+-
+
+Plan on doing
+- Individual Distinction Task 10.6
+
+General Status 
+- finally done
