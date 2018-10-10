@@ -39,8 +39,9 @@
 			</table>
 
 			</br>
+		@endif
 
-		<h1>All Sales For Selected Item and Time Period</h1>
+		<h1>All Sales For Set Filter and Time Period</h1>
 		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
@@ -65,7 +66,6 @@
 		</table>
 
 		</br>
-		@endif
 
 		@if ($topSold == null)
 			<h1>Estimated Sales For Next Similar Time Period</h1>

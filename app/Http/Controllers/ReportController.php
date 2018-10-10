@@ -26,7 +26,7 @@ class ReportController extends Controller
     {
         $items = Item::orderBy('stock', 'asc')->take(5)->get();
         $itemid = Item::pluck('name', 'id');
-        $category = Item::pluck('category');
+        $category = ItemController::getEnumValues('items','category') ;
         return View::make('reports.index')
             ->with('items', $items)
             ->with('itemid', $itemid)
@@ -110,9 +110,10 @@ class ReportController extends Controller
         $sales = Sale::whereBetween('created_at', [$from, $to])
                     ->where('item_id', $itemid)
                     ->orderBy('created_at')->get();
-        $topSold = null;
-        $estSales = Sale::groupBy('item_id')
 
+        $topSold = null;
+
+        $estSales = Sale::groupBy('item_id')
                     ->selectRaw('ceil(avg(quantity)) as estimated_quantity, item_id')
                     ->where('item_id', $itemid)
                     ->orderBy('item_id')
@@ -134,16 +135,18 @@ class ReportController extends Controller
         $category = Input::get('category');
         $from = Input::get('select_from');
         $to = Input::get('select_to');
-        $sales = Sale::whereBetween('created_at', [$from, $to])
-                    ->orderBy('created_at')->get();
+        $sales = Sale::join('items', 'sales.item_id', '=', 'items.id')
+                    ->where('category', $category)
+                    ->orderBy('sales.created_at')->get();
+
         $topSold = null;
+
         $estSales = Sale::groupBy('category')
                     ->join('items', 'sales.item_id', '=', 'items.id')
                     ->selectRaw('ceil(avg(quantity)) as estimated_quantity, category')
                     ->where('category', $category)
                     ->orderBy('category')
                     ->pluck('estimated_quantity','category');
-
 
         return View::make('reports.view')
             ->with('sales', $sales)

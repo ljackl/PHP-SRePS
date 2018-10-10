@@ -58,7 +58,7 @@
 		<div class="jumbotron text-center">
 			{{ Form::open(array('url' => 'reports/predictCat', 'class' => 'pull-right')) }}
 				{{ Form::label('category', 'Category') }}
-					{{ Form::select('category', $category, null, ['class' => 'form-control']) }}
+				{{ Form::select('category', $category, null, ['class' => 'form-control']) }}
 
 				{{ Form::label('select_from', 'Select From') }}
 				{{ Form::date('select_from', null, array('class' => 'form-control')) }}
