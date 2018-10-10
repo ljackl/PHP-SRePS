@@ -57,7 +57,7 @@
 					<tr>
                         <td>{{$value->id}}</td>
                         <td>{{$value->item->name}}</td>
-                        <td>${{$value->sale}}</td>
+                        <td>{{$value->sale}}</td>
                         <td>{{$value->quantity}}</td>
                         <td>{{$value->created_at}}</td>
 					</tr>
@@ -67,8 +67,8 @@
 
 		</br>
 
-		@if ($topSold == null)
-			<h1>Estimated Sales For Next Similar Time Period</h1>
+		@if (!empty($item_id))
+			<h1>Estimated Sales For Item: Next Similar Time Period</h1>
 			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
@@ -77,12 +77,28 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($estSales as $key => $value)
-						<tr>
-							<td><a href="{{URL::to('items/'.$key)}}">{{$key}}</a></td>
-							<td>{{$value}}</td>
-						</tr>
-					@endforeach
+					<tr>
+						<td><a href="{{URL::to('items/'.$item_id)}}">{{$item_id}}</a></td>
+						<td>{{$quantityPerPeriod}}</td>
+					</tr>
+				</tbody>
+			</table>
+		@endif
+
+		@if (!empty($category))
+			<h1>Estimated Sales For Cateogry: Next Similar Time Period</h1>
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Category</th>
+						<th>Estimated Sale Quantity</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{$category}}</a></td>
+						<td>{{$quantityPerPeriod}}</td>
+					</tr>
 				</tbody>
 			</table>
 		@endif
